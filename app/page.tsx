@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, Clock, X } from 'lucide-react';
+import { ArrowLeft, Clock, X, ChevronDown } from 'lucide-react';
 // @ts-ignore - react-simple-maps doesn't have types for React 19
 import { ComposableMap, Geographies, Geography, Marker } from 'react-simple-maps';
 
@@ -19,7 +19,6 @@ export default function FAQ() {
   const [showBanner, setShowBanner] = useState(true);
   const [showWaitlistModal, setShowWaitlistModal] = useState(false);
   const [waitlistName, setWaitlistName] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
   const [whatsappNumber, setWhatsappNumber] = useState('');
   const [state, setState] = useState('');
   const [city, setCity] = useState('');
@@ -30,6 +29,8 @@ export default function FAQ() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const [isCategoryDropdownOpen, setIsCategoryDropdownOpen] = useState(false);
+  const [isExperienceDropdownOpen, setIsExperienceDropdownOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -248,7 +249,19 @@ export default function FAQ() {
                 <ul className="text-base sm:text-lg md:text-xl text-gray-600 space-y-3 md:space-y-4">
                   <li className="flex items-start">
                     <span className="text-[#F76300] mr-4">•</span>
-                    <span>Missed calls</span>
+                    <span>Chaotic timing</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-[#F76300] mr-4">•</span>
+                    <span>Unwritten agreements</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-[#F76300] mr-4">•</span>
+                    <span>Unfair treatment</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-[#F76300] mr-4">•</span>
+                    <span>Unorganized calendar</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-[#F76300] mr-4">•</span>
@@ -256,19 +269,11 @@ export default function FAQ() {
                   </li>
                   <li className="flex items-start">
                     <span className="text-[#F76300] mr-4">•</span>
-                    <span>Unclear expectations</span>
+                    <span>Failed payments</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-[#F76300] mr-4">•</span>
-                    <span>Cancelled jobs</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-[#F76300] mr-4">•</span>
-                    <span>I'll get back to you</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-[#F76300] mr-4">•</span>
-                    <span>No protection</span>
+                    <span>Broken agreements</span>
                   </li>
                 </ul>
               </motion.div>
@@ -284,45 +289,34 @@ export default function FAQ() {
             >
               {/* Image 1 */}
               <div className="break-inside-avoid mb-4">
-                <div className="bg-gray-100 rounded-xl h-64 overflow-hidden relative">
+                <div className="rounded-xl h-72 overflow-hidden relative border-2 border-gray-200">
                   <Image
                     src="/broken-01.png"
                     alt="Service work challenges"
                     fill
-                    className="object-contain"
-                  />
-                </div>
-              </div>
-              {/* Image 2 */}
-              <div className="break-inside-avoid mb-4">
-                <div className="bg-gray-100 rounded-xl h-80 overflow-hidden relative">
-                  <Image
-                    src="/broken-02.png"
-                    alt="Payment issues"
-                    fill
-                    className="object-contain"
+                    className="object-contain p-0"
                   />
                 </div>
               </div>
               {/* Image 3 */}
               <div className="break-inside-avoid mb-4">
-                <div className="bg-gray-100 rounded-xl h-56 overflow-hidden relative">
+                <div className="rounded-xl h-64 overflow-hidden relative border-2 border-gray-200">
                   <Image
                     src="/broken-03.png"
                     alt="Unclear expectations"
                     fill
-                    className="object-contain"
+                    className="object-contain p-0"
                   />
                 </div>
               </div>
               {/* Image 4 */}
               <div className="break-inside-avoid mb-4">
-                <div className="bg-gray-100 rounded-xl h-72 overflow-hidden relative">
+                <div className="rounded-xl h-96 overflow-hidden relative border-2 border-gray-200">
                   <Image
                     src="/broken-04.png"
                     alt="Cancelled jobs"
                     fill
-                    className="object-contain"
+                    className="object-contain p-0"
                   />
                 </div>
               </div>
@@ -1589,7 +1583,6 @@ export default function FAQ() {
                 try {
                   const params = new URLSearchParams({
                     full_name: waitlistName,
-                    phone_number: phoneNumber,
                     whatsapp_number: whatsappNumber,
                     state: state,
                     city: city,
@@ -1598,7 +1591,7 @@ export default function FAQ() {
                     years_of_experience: yearsOfExperience
                   });
                   
-                  const response = await fetch(`https://x8ki-letl-twmt.n7.xano.io/api:uw9jEuYS/waitlist?${params.toString()}`, {
+                  const response = await fetch(`https://x8ki-letl-twmt.n7.xano.io/api:jPlRG5T0/early_access?${params.toString()}`, {
                     method: 'POST',
                   });
                   
@@ -1608,7 +1601,6 @@ export default function FAQ() {
                     setTimeout(() => {
                       setShowWaitlistModal(false);
                       setWaitlistName('');
-                      setPhoneNumber('');
                       setWhatsappNumber('');
                       setState('');
                       setCity('');
@@ -1710,27 +1702,52 @@ export default function FAQ() {
                   </div>
 
                   {/* Main Service Category Field */}
-                  <div>
+                  <div className="relative">
                     <label htmlFor="service-category" className="block text-xs font-medium text-gray-700 mb-1.5">
                       Main Service Category *
                     </label>
-                    <select
-                      id="service-category"
-                      value={serviceCategory}
-                      onChange={(e) => setServiceCategory(e.target.value)}
-                      required
-                      className="w-full px-3 py-2.5 text-sm border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#549FE5] focus:border-transparent outline-none transition-all text-gray-900 min-h-[42px]"
+                    <div
+                      onClick={() => setIsCategoryDropdownOpen(!isCategoryDropdownOpen)}
+                      className="w-full px-3 py-2.5 text-sm border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#549FE5] focus:border-transparent outline-none transition-all text-gray-900 min-h-[42px] cursor-pointer flex items-center justify-between bg-white"
                     >
-                      <option value="">Select service category</option>
-                      <option value="Home Repairs & Maintenance">Home Repairs & Maintenance</option>
-                      <option value="Cleaning & Domestic Support">Cleaning & Domestic Support</option>
-                      <option value="Outdoor & Environmental">Outdoor & Environmental</option>
-                      <option value="Device & Technical Repairs">Device & Technical Repairs</option>
-                      <option value="Events & Occasion">Events & Occasion</option>
-                      <option value="Creative Services">Creative Services</option>
-                      <option value="Fashion">Fashion</option>
-                      <option value="Personal Care">Personal Care</option>
-                    </select>
+                      <span className={serviceCategory ? 'text-gray-900' : 'text-gray-400'}>
+                        {serviceCategory || 'Select service category'}
+                      </span>
+                      <ChevronDown className={`w-4 h-4 transition-transform ${isCategoryDropdownOpen ? 'rotate-180' : ''}`} />
+                    </div>
+                    <AnimatePresence>
+                      {isCategoryDropdownOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -10 }}
+                          transition={{ duration: 0.2 }}
+                          className="absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg max-h-60 overflow-y-auto"
+                        >
+                          {[
+                            'Home Repairs & Maintenance',
+                            'Cleaning & Domestic Support',
+                            'Outdoor & Environmental',
+                            'Device & Technical Repairs',
+                            'Events & Occasion',
+                            'Creative Services',
+                            'Fashion',
+                            'Personal Care'
+                          ].map((category) => (
+                            <div
+                              key={category}
+                              onClick={() => {
+                                setServiceCategory(category);
+                                setIsCategoryDropdownOpen(false);
+                              }}
+                              className="px-3 py-2.5 text-sm hover:bg-[#549FE5]/10 cursor-pointer transition-colors text-gray-900"
+                            >
+                              {category}
+                            </div>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
 
                   {/* Custom Category Field */}
@@ -1749,24 +1766,49 @@ export default function FAQ() {
                   </div>
 
                   {/* Years of Experience Field */}
-                  <div>
+                  <div className="relative">
                     <label htmlFor="years-experience" className="block text-xs font-medium text-gray-700 mb-1.5">
                       Years of Experience *
                     </label>
-                    <select
-                      id="years-experience"
-                      value={yearsOfExperience}
-                      onChange={(e) => setYearsOfExperience(e.target.value)}
-                      required
-                      className="w-full px-3 py-2.5 text-sm border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#549FE5] focus:border-transparent outline-none transition-all text-gray-900 min-h-[42px]"
+                    <div
+                      onClick={() => setIsExperienceDropdownOpen(!isExperienceDropdownOpen)}
+                      className="w-full px-3 py-2.5 text-sm border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#549FE5] focus:border-transparent outline-none transition-all text-gray-900 min-h-[42px] cursor-pointer flex items-center justify-between bg-white"
                     >
-                      <option value="">Select years</option>
-                      <option value="Less than 1 year">Less than 1 year</option>
-                      <option value="1-2 years">1-2 years</option>
-                      <option value="3-5 years">3-5 years</option>
-                      <option value="6-10 years">6-10 years</option>
-                      <option value="More than 10 years">More than 10 years</option>
-                    </select>
+                      <span className={yearsOfExperience ? 'text-gray-900' : 'text-gray-400'}>
+                        {yearsOfExperience || 'Select years'}
+                      </span>
+                      <ChevronDown className={`w-4 h-4 transition-transform ${isExperienceDropdownOpen ? 'rotate-180' : ''}`} />
+                    </div>
+                    <AnimatePresence>
+                      {isExperienceDropdownOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -10 }}
+                          transition={{ duration: 0.2 }}
+                          className="absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg max-h-60 overflow-y-auto"
+                        >
+                          {[
+                            'Less than 1 year',
+                            '1-2 years',
+                            '3-5 years',
+                            '6-10 years',
+                            'More than 10 years'
+                          ].map((years) => (
+                            <div
+                              key={years}
+                              onClick={() => {
+                                setYearsOfExperience(years);
+                                setIsExperienceDropdownOpen(false);
+                              }}
+                              className="px-3 py-2.5 text-sm hover:bg-[#549FE5]/10 cursor-pointer transition-colors text-gray-900"
+                            >
+                              {years}
+                            </div>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
 
                   {/* Status Messages */}
