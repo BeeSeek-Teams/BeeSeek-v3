@@ -1588,6 +1588,7 @@ export default function FAQ() {
                     city: city,
                     zone: zone,
                     service_category: serviceCategory,
+                    custom_category: customCategory,
                     years_of_experience: yearsOfExperience
                   });
                   
@@ -1606,6 +1607,7 @@ export default function FAQ() {
                       setCity('');
                       setZone('');
                       setServiceCategory('');
+                      setCustomCategory('');
                       setYearsOfExperience('');
                       setSubmitStatus('idle');
                     }, 2000);
