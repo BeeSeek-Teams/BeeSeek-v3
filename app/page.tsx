@@ -66,7 +66,7 @@ export default function FAQ() {
   }, []);
 
   return (
-    <div className="min-h-screen font-lato bg-white">
+    <div className="min-h-screen font-lato bg-white overflow-x-hidden">
       {/* Countdown Banner */}
       <AnimatePresence>
         {showBanner && (
