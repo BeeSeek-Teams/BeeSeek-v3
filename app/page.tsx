@@ -25,6 +25,7 @@ export default function FAQ() {
   const [city, setCity] = useState('');
   const [zone, setZone] = useState('');
   const [serviceCategory, setServiceCategory] = useState('');
+  const [customCategory, setCustomCategory] = useState('');
   const [yearsOfExperience, setYearsOfExperience] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -76,7 +77,7 @@ export default function FAQ() {
             exit={{ opacity: 0, y: -50 }}
             className="fixed top-0 left-0 right-0 z-50 bg-[#1E3A5F] text-white py-3 sm:py-3 px-2 sm:px-4"
           >
-            <div className="max-w-7xl mx-auto flex items-center justify-center gap-0.5 sm:gap-1">
+            <div className="max-w-7xl mx-auto flex items-center justify-center gap-2 sm:gap-3">
               <Clock className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
               <div className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm md:text-base font-bold">
                 <span className="hidden sm:inline">BeeSeek Early Access opens in:</span>
@@ -281,25 +282,48 @@ export default function FAQ() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              {/* Placeholder for images - you'll provide these */}
+              {/* Image 1 */}
               <div className="break-inside-avoid mb-4">
-                <div className="bg-gray-200 rounded-xl h-64 flex items-center justify-center">
-                  <span className="text-gray-400">Image 1</span>
+                <div className="bg-gray-100 rounded-xl h-64 overflow-hidden relative">
+                  <Image
+                    src="/broken-01.png"
+                    alt="Service work challenges"
+                    fill
+                    className="object-contain"
+                  />
                 </div>
               </div>
+              {/* Image 2 */}
               <div className="break-inside-avoid mb-4">
-                <div className="bg-gray-200 rounded-xl h-80 flex items-center justify-center">
-                  <span className="text-gray-400">Image 2</span>
+                <div className="bg-gray-100 rounded-xl h-80 overflow-hidden relative">
+                  <Image
+                    src="/broken-02.png"
+                    alt="Payment issues"
+                    fill
+                    className="object-contain"
+                  />
                 </div>
               </div>
+              {/* Image 3 */}
               <div className="break-inside-avoid mb-4">
-                <div className="bg-gray-200 rounded-xl h-56 flex items-center justify-center">
-                  <span className="text-gray-400">Image 3</span>
+                <div className="bg-gray-100 rounded-xl h-56 overflow-hidden relative">
+                  <Image
+                    src="/broken-03.png"
+                    alt="Unclear expectations"
+                    fill
+                    className="object-contain"
+                  />
                 </div>
               </div>
+              {/* Image 4 */}
               <div className="break-inside-avoid mb-4">
-                <div className="bg-gray-200 rounded-xl h-72 flex items-center justify-center">
-                  <span className="text-gray-400">Image 4</span>
+                <div className="bg-gray-100 rounded-xl h-72 overflow-hidden relative">
+                  <Image
+                    src="/broken-04.png"
+                    alt="Cancelled jobs"
+                    fill
+                    className="object-contain"
+                  />
                 </div>
               </div>
             </motion.div>
@@ -461,12 +485,12 @@ export default function FAQ() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              <div className="relative w-full h-48">
+              <div className="relative w-full h-64">
                 <Image
                   src="/mansory-01.png"
                   alt="Verified Clients"
                   fill
-                  className="object-cover"
+                  className="object-contain"
                 />
               </div>
               <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between">
@@ -490,12 +514,12 @@ export default function FAQ() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <div className="relative w-full h-40">
+              <div className="relative w-full h-52">
                 <Image
                   src="/mansory-02.png"
                   alt="Protected Payments"
                   fill
-                  className="object-cover"
+                  className="object-contain"
                 />
               </div>
               <div className="p-6 sm:p-8">
@@ -520,16 +544,16 @@ export default function FAQ() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <div className="relative w-full h-40">
+              <div className="relative w-full h-52">
                 <Image
                   src="/mansory-03.png"
                   alt="Clear Job Agreements"
                   fill
-                  className="object-cover"
+                  className="object-contain"
                 />
               </div>
               <div className="p-6 sm:p-8">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-[#F76300] rounded-full flex items-center justify-center text-white font-bold text-xl sm:text-2xl mb-4 sm:mb-6">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-[#1E3A5F] rounded-full flex items-center justify-center text-white font-bold text-xl sm:text-2xl mb-4 sm:mb-6">
                   3
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-[#1E3A5F] mb-2 sm:mb-3">Clear Job Agreements</h3>
@@ -547,12 +571,12 @@ export default function FAQ() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <div className="relative w-full h-40">
+              <div className="relative w-full h-52">
                 <Image
                   src="/mansory-04.png"
                   alt="Instant Payouts"
                   fill
-                  className="object-cover"
+                  className="object-contain"
                 />
               </div>
               <div className="p-6 sm:p-8">
@@ -577,12 +601,12 @@ export default function FAQ() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.5 }}
             >
-              <div className="relative w-full h-48">
+              <div className="relative w-full h-64">
                 <Image
                   src="/mansory-05.png"
                   alt="Professional Profile"
                   fill
-                  className="object-cover"
+                  className="object-contain"
                 />
               </div>
               <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between">
@@ -606,16 +630,16 @@ export default function FAQ() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              <div className="relative w-full h-40">
+              <div className="relative w-full h-52">
                 <Image
                   src="/mansory-06.png"
                   alt="Fair Structure"
                   fill
-                  className="object-cover"
+                  className="object-contain"
                 />
               </div>
               <div className="p-6 sm:p-8">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-[#F76300] rounded-full flex items-center justify-center text-white font-bold text-xl sm:text-2xl mb-4 sm:mb-6">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-[#549FE5] rounded-full flex items-center justify-center text-white font-bold text-xl sm:text-2xl mb-4 sm:mb-6">
                   6
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-[#1E3A5F] mb-2 sm:mb-3">Fair Structure</h3>
@@ -1695,7 +1719,7 @@ export default function FAQ() {
                       value={serviceCategory}
                       onChange={(e) => setServiceCategory(e.target.value)}
                       required
-                      className="w-full px-3 py-2.5 text-sm border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#549FE5] focus:border-transparent outline-none transition-all text-gray-900"
+                      className="w-full px-3 py-2.5 text-sm border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#549FE5] focus:border-transparent outline-none transition-all text-gray-900 min-h-[42px]"
                     >
                       <option value="">Select service category</option>
                       <option value="Home Repairs & Maintenance">Home Repairs & Maintenance</option>
@@ -1709,6 +1733,21 @@ export default function FAQ() {
                     </select>
                   </div>
 
+                  {/* Custom Category Field */}
+                  <div>
+                    <label htmlFor="custom-category" className="block text-xs font-medium text-gray-700 mb-1.5">
+                      Can't find your category? Type it here
+                    </label>
+                    <input
+                      id="custom-category"
+                      type="text"
+                      value={customCategory}
+                      onChange={(e) => setCustomCategory(e.target.value)}
+                      className="w-full px-3 py-2.5 text-sm border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#549FE5] focus:border-transparent outline-none transition-all text-gray-900 placeholder-gray-400"
+                      placeholder="Enter your service category"
+                    />
+                  </div>
+
                   {/* Years of Experience Field */}
                   <div>
                     <label htmlFor="years-experience" className="block text-xs font-medium text-gray-700 mb-1.5">
@@ -1719,7 +1758,7 @@ export default function FAQ() {
                       value={yearsOfExperience}
                       onChange={(e) => setYearsOfExperience(e.target.value)}
                       required
-                      className="w-full px-3 py-2.5 text-sm border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#549FE5] focus:border-transparent outline-none transition-all text-gray-900"
+                      className="w-full px-3 py-2.5 text-sm border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#549FE5] focus:border-transparent outline-none transition-all text-gray-900 min-h-[42px]"
                     >
                       <option value="">Select years</option>
                       <option value="Less than 1 year">Less than 1 year</option>
