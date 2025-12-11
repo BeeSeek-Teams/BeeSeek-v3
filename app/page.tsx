@@ -279,46 +279,21 @@ export default function FAQ() {
               </motion.div>
             </div>
 
-            {/* Right: Masonry Grid */}
+            {/* Right: Single Image */}
             <motion.div
-              className="columns-1 sm:columns-2 gap-3 sm:gap-4 space-y-3 sm:space-y-4 mt-8 lg:mt-0"
+              className="mt-8 lg:mt-0 rounded-3xl overflow-hidden bg-gray-50"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              {/* Image 1 */}
-              <div className="break-inside-avoid mb-4">
-                <div className="rounded-xl h-72 overflow-hidden relative border-2 border-gray-200">
-                  <Image
-                    src="/broken-01.png"
-                    alt="Service work challenges"
-                    fill
-                    className="object-contain p-0"
-                  />
-                </div>
-              </div>
-              {/* Image 3 */}
-              <div className="break-inside-avoid mb-4">
-                <div className="rounded-xl h-64 overflow-hidden relative border-2 border-gray-200">
-                  <Image
-                    src="/broken-03.png"
-                    alt="Unclear expectations"
-                    fill
-                    className="object-contain p-0"
-                  />
-                </div>
-              </div>
-              {/* Image 4 */}
-              <div className="break-inside-avoid mb-4">
-                <div className="rounded-xl h-96 overflow-hidden relative border-2 border-gray-200">
-                  <Image
-                    src="/broken-04.png"
-                    alt="Cancelled jobs"
-                    fill
-                    className="object-contain p-0"
-                  />
-                </div>
+              <div className="relative h-[400px] sm:h-[500px] lg:h-[600px]">
+                <Image
+                  src="/stressed.png"
+                  alt="Service work challenges"
+                  fill
+                  className="object-cover"
+                />
               </div>
             </motion.div>
           </div>
@@ -689,7 +664,7 @@ export default function FAQ() {
                 <div className="ml-16 sm:ml-24">
                   <h3 className="text-xl sm:text-2xl font-bold text-[#1E3A5F] mb-2">Join Early Access</h3>
                   <p className="text-base sm:text-lg text-gray-600">
-                    Submit your details. We'll notify you when verification opens.
+                    Submit your details now. Get notified when BeeSeek launches on January 15.
                   </p>
                 </div>
               </motion.div>
@@ -706,9 +681,9 @@ export default function FAQ() {
                   <span className="text-white font-bold text-lg sm:text-xl">2</span>
                 </div>
                 <div className="ml-16 sm:ml-24">
-                  <h3 className="text-xl sm:text-2xl font-bold text-[#1E3A5F] mb-2">Get Verified (January 15)</h3>
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#1E3A5F] mb-2">App Launches (January 15)</h3>
                   <p className="text-base sm:text-lg text-gray-600">
-                    Identity checks, skill proof, and simple onboarding steps.
+                    BeeSeek Agent app goes live. Access the platform and begin your setup.
                   </p>
                 </div>
               </motion.div>
@@ -725,9 +700,9 @@ export default function FAQ() {
                   <span className="text-white font-bold text-lg sm:text-xl">3</span>
                 </div>
                 <div className="ml-16 sm:ml-24">
-                  <h3 className="text-xl sm:text-2xl font-bold text-[#1E3A5F] mb-2">Go Live</h3>
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#1E3A5F] mb-2">Create & Verify Your Account</h3>
                   <p className="text-base sm:text-lg text-gray-600">
-                    Once approved, your profile becomes visible in your city.
+                    Build your professional profile with identity verification and credentials.
                   </p>
                 </div>
               </motion.div>
@@ -744,9 +719,9 @@ export default function FAQ() {
                   <span className="text-white font-bold text-lg sm:text-xl">4</span>
                 </div>
                 <div className="ml-16 sm:ml-24">
-                  <h3 className="text-xl sm:text-2xl font-bold text-[#1E3A5F] mb-2">Receive Jobs</h3>
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#1E3A5F] mb-2">Create Your Bees</h3>
                   <p className="text-base sm:text-lg text-gray-600">
-                    Clients send requests directly to you through BeeSeek.
+                    List the services you offer. Each service is called a "Bee" on our platform.
                   </p>
                 </div>
               </motion.div>
@@ -759,13 +734,13 @@ export default function FAQ() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.5 }}
               >
-                <div className="absolute left-0 w-16 h-16 bg-[#1E3A5F] rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold text-xl">5</span>
+                <div className="absolute left-0 w-12 h-12 sm:w-16 sm:h-16 bg-[#1E3A5F] rounded-full flex items-center justify-center">
+                  <span className="text-white font-bold text-lg sm:text-xl">5</span>
                 </div>
-                <div className="ml-24">
-                  <h3 className="text-2xl font-bold text-[#1E3A5F] mb-2">Complete Work & Get Paid</h3>
-                  <p className="text-lg text-gray-600">
-                    Deliver quality. Get rated. Earn quickly.
+                <div className="ml-16 sm:ml-24">
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#1E3A5F] mb-2">Go Live & Start Earning</h3>
+                  <p className="text-base sm:text-lg text-gray-600">
+                    Your profile goes live in your area. Receive job requests, complete work, and get paid.
                   </p>
                 </div>
               </motion.div>
@@ -1314,11 +1289,11 @@ export default function FAQ() {
               },
               {
                 question: 'When will I start receiving jobs?',
-                answer: 'After verification and approval, starting January 15.',
+                answer: 'Once your profile gets approved and the client program goes online, you can start receiving jobs within your area.',
               },
               {
                 question: 'What documents do I need to verify?',
-                answer: 'A valid ID and proof of skill (photos/videos or past work).',
+                answer: 'A valid ID, a selfie, and email verification via magic link. You will be selected for a skills assessment at designated times. Exceptional performance earns you a verified badge.',
               },
               {
                 question: "Can I join if I'm not in Lagos or Ibadan?",
