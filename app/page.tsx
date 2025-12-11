@@ -305,13 +305,13 @@ export default function FAQ() {
 
       {/* BeeSeek Solution Section */}
       <motion.section
-        className="bg-white min-h-[100vh] flex items-center"
+        className="bg-white flex items-center"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 w-full">
           <div className="flex flex-col justify-center">
             {/* Solution Header */}
             <motion.h2 
