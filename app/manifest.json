@@ -1,11 +1,15 @@
 {
-  "name": "BeeSeek - Agent Recruitment",
+  "name": "BeeSeek - Nigeria's Trusted Service Marketplace for Verified Professionals",
   "short_name": "BeeSeek",
-  "description": "Join BeeSeek as a verified agent and access verified clients, clear agreements, and protected payments.",
+  "description": "Connect with verified service providers across Nigeria. Find electricians, plumbers, cleaners, event planners, and more. Fair pay, instant payouts, protected payments.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
+  "orientation": "portrait-primary",
   "background_color": "#ffffff",
   "theme_color": "#1E3A5F",
+  "categories": ["business", "lifestyle", "productivity"],
+  "lang": "en-NG",
   "icons": [
     {
       "src": "/beeseek.png",

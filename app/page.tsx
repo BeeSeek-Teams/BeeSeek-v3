@@ -16,6 +16,7 @@ export default function FAQ() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
   const [selectedCategory, setSelectedCategory] = useState(1);
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const [timerElapsed, setTimerElapsed] = useState(false);
   const [showBanner, setShowBanner] = useState(true);
   const [showWaitlistModal, setShowWaitlistModal] = useState(false);
   const [waitlistName, setWaitlistName] = useState('');
@@ -45,6 +46,7 @@ export default function FAQ() {
       const difference = targetDate - now;
 
       if (difference > 0) {
+        setTimerElapsed(false);
         return {
           days: Math.floor(difference / (1000 * 60 * 60 * 24)),
           hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
@@ -52,6 +54,7 @@ export default function FAQ() {
           seconds: Math.floor((difference % (1000 * 60)) / 1000)
         };
       }
+      setTimerElapsed(true);
       return { days: 0, hours: 0, minutes: 0, seconds: 0 };
     };
 
@@ -68,7 +71,46 @@ export default function FAQ() {
   }, []);
 
   return (
-    <div className="min-h-screen font-lato bg-white overflow-x-hidden">
+    <>
+      {/* SEO-Optimized Hidden Content for Search Engines */}
+      <div className="sr-only" aria-hidden="true">
+        <h1>BeeSeek - Nigeria's Leading Service Provider Marketplace for Verified Professionals</h1>
+        <p>Find trusted service providers in Nigeria. Connect with verified electricians, plumbers, cleaners, event planners, photographers, barbers, makeup artists, and more across Lagos, Ibadan, Abuja, and Port Harcourt.</p>
+        
+        <h2>Physical Freelancing Services in Nigeria</h2>
+        <p>Professional skilled workers offering: electrician services, plumbing services, AC repair, fridge repair, washing machine repair, generator repair, carpentry, furniture repair, painting, tiling, welding, POP specialist, roofing, door installation, solar installation, CCTV installation, smart home installation, handyman services</p>
+        
+        <h2>Cleaning and Domestic Services Nigeria</h2>
+        <p>House cleaning, deep cleaning, post-construction cleaning, laundry pickup and delivery, upholstery cleaning, mattress cleaning, window cleaning, compound cleaning, drain cleaning, gutter cleaning, sofa cleaning, carpet cleaning</p>
+        
+        <h2>Device and Technical Repair Services</h2>
+        <p>Phone repair, laptop repair, tablet repair, TV repair, printer repair, networking setup, Wi-Fi installation, CCTV maintenance, smart lock installation, doorbell installation</p>
+        
+        <h2>Event and Occasion Services Nigeria</h2>
+        <p>Event planning, event setup, event decoration, party decorations, event rentals, event cleanup, catering services, bakers, ushers, event MC, DJ services, sound technician, lighting assistant, stage setup, backdrop installation</p>
+        
+        <h2>Personal Care Services</h2>
+        <p>Barbing services, hairdressing, hair styling, makeup artist, beauty services</p>
+        
+        <h2>Outdoor and Environmental Services</h2>
+        <p>Gardening, yard work, landscaping, pest control, fumigation, waste disposal, car wash, mobile car wash</p>
+        
+        <h2>Fashion and Tailoring Services</h2>
+        <p>Tailoring, sewing, cloth adjustment, fitting services, fashion fixes, zipper repair, button replacement</p>
+        
+        <h2>Cities We Serve</h2>
+        <ul>
+          <li>Service providers in Lagos Nigeria - Island and Mainland zones</li>
+          <li>Service providers in Ibadan Nigeria - Bodija, UI axis</li>
+          <li>Service providers in Abuja Nigeria</li>
+          <li>Service providers in Port Harcourt Nigeria</li>
+        </ul>
+        
+        <h2>Why Choose BeeSeek Service Marketplace</h2>
+        <p>Verified agents, protected payments, instant payouts, clear job agreements, professional profiles, fair commission structure, reliable bookings, trusted freelancers, skilled artisans, blue collar workers, gig economy platform</p>
+      </div>
+      
+      <div className="min-h-screen font-lato bg-white overflow-x-hidden">
       {/* Countdown Banner */}
       <AnimatePresence>
         {showBanner && (
@@ -145,10 +187,15 @@ export default function FAQ() {
 
             {/* Join Early Access Button */}
             <motion.button
-              onClick={() => setShowWaitlistModal(true)}
-              className="bg-[#F76300] text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-full hover:bg-orange-600 transition-all font-bold text-xs sm:text-sm xl:text-base"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              onClick={() => timerElapsed && setShowWaitlistModal(true)}
+              disabled={!timerElapsed}
+              className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-full transition-all font-bold text-xs sm:text-sm xl:text-base ${
+                timerElapsed
+                  ? 'bg-[#F76300] text-white hover:bg-orange-600 cursor-pointer'
+                  : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+              }`}
+              whileHover={timerElapsed ? { scale: 1.05 } : {}}
+              whileTap={timerElapsed ? { scale: 0.95 } : {}}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
               Join Early Access
@@ -379,7 +426,7 @@ export default function FAQ() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.5 }}
               >
-                <span className="text-xl font-bold text-[#1E3A5F]">Reliable bookings</span>
+                <span className="text-xl font-bold text-[#1E3A5F]">Clear and Fair Commissions</span>
               </motion.div>
 
               {/* Small Card - Professional visibility */}
@@ -681,7 +728,7 @@ export default function FAQ() {
                   <span className="text-white font-bold text-lg sm:text-xl">2</span>
                 </div>
                 <div className="ml-16 sm:ml-24">
-                  <h3 className="text-xl sm:text-2xl font-bold text-[#1E3A5F] mb-2">App Launches (January 15)</h3>
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#1E3A5F] mb-2">App Launches</h3>
                   <p className="text-base sm:text-lg text-gray-600">
                     BeeSeek Agent app goes live. Access the platform and begin your setup.
                   </p>
@@ -906,9 +953,9 @@ export default function FAQ() {
 
                 {/* Ibadan */}
                 <div className="border-l-4 border-[#F76300] pl-4 sm:pl-6">
-                  <h4 className="text-xl sm:text-2xl font-bold text-[#1E3A5F] mb-1 sm:mb-2">Ibadan</h4>
+                  <h4 className="text-xl sm:text-2xl font-bold text-[#1E3A5F] mb-1 sm:mb-2">Oyo State</h4>
                   <p className="text-base sm:text-lg text-gray-600">
-                    Bodija / UI axis
+                    Ibadan
                   </p>
                 </div>
               </div>
@@ -921,8 +968,11 @@ export default function FAQ() {
                 <p className="text-sm sm:text-base text-gray-600 mb-2">
                   Still welcome to join Early Access.
                 </p>
-                <p className="text-sm sm:text-base text-gray-600">
+                <p className="text-sm sm:text-base text-gray-600 mb-2">
                   You'll be notified when your area opens.
+                </p>
+                <p className="text-sm sm:text-base text-gray-600 font-semibold">
+                  Your location details can be updated before the app launches. Sign up now to secure your spot.
                 </p>
               </div>
             </motion.div>
@@ -1240,10 +1290,15 @@ export default function FAQ() {
                   
                   {/* CTA Button */}
                   <motion.button
-                    onClick={() => setShowWaitlistModal(true)}
-                    className="bg-[#F76300] text-white px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-full hover:bg-orange-600 transition-all font-bold text-base sm:text-lg shadow-lg mt-4 sm:mt-6"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                    onClick={() => timerElapsed && setShowWaitlistModal(true)}
+                    disabled={!timerElapsed}
+                    className={`px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-full transition-all font-bold text-base sm:text-lg shadow-lg mt-4 sm:mt-6 ${
+                      timerElapsed
+                        ? 'bg-[#F76300] text-white hover:bg-orange-600 cursor-pointer'
+                        : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                    }`}
+                    whileHover={timerElapsed ? { scale: 1.05 } : {}}
+                    whileTap={timerElapsed ? { scale: 0.95 } : {}}
                     transition={{ type: "spring", stiffness: 400, damping: 17 }}
                   >
                     Yes, I Want to Join
@@ -1875,6 +1930,7 @@ export default function FAQ() {
           display: none;
         }
       `}</style>
-    </div>
+      </div>
+    </>
   );
 }

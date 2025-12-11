@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.beeseek.site
+
+# Sitemaps
+Sitemap: https://www.beeseek.site/sitemap.xml

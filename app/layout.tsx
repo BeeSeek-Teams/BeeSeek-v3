@@ -28,19 +28,78 @@ export const metadata: Metadata = {
   },
   description: "Connect with verified agents and trusted service providers across Nigeria. BeeSeek makes finding help fast, fair, and reliable — The Search Ends Here.",
   keywords: [
-    "local services Nigeria",
-    "service marketplace",
-    "verified agents Nigeria", 
+    // Core Service Provider Keywords
+    "service providers Nigeria",
+    "verified service providers",
+    "trusted service providers",
+    "professional service providers",
+    "local service providers",
+    "freelance service providers Nigeria",
+    "physical freelancing Nigeria",
+    "skilled workers Nigeria",
+    "artisan marketplace Nigeria",
+    "blue collar workers Nigeria",
+    
+    // Home Services
+    "electrician near me Nigeria",
+    "plumber Lagos",
+    "AC repair Nigeria",
+    "carpenter services",
+    "painter near me",
+    "handyman services Nigeria",
+    "home repair services",
+    "home maintenance Nigeria",
+    
+    // Cleaning Services
+    "cleaning services Lagos",
+    "house cleaning Nigeria",
+    "deep cleaning services",
+    "professional cleaners",
+    "laundry services Nigeria",
+    
+    // Technical Services
+    "phone repair Nigeria",
+    "laptop repair services",
+    "tech repair near me",
+    "CCTV installation Nigeria",
+    
+    // Event Services
+    "event planners Nigeria",
+    "catering services",
+    "photography services Nigeria",
+    "DJ services Lagos",
+    "event decoration",
+    
+    // Personal Care
+    "barber services Nigeria",
+    "makeup artist Lagos",
+    "hairdressing services",
+    
+    // General Marketplace
+    "service marketplace Nigeria",
+    "verified agents Nigeria",
     "hire professionals Nigeria",
-    "trusted freelancers",
-    "BeeSeek agents",
-    "find service providers",
-    "on-demand help Nigeria",
-    "fair pay freelancing",
-    "Nigerian service app",
+    "trusted freelancers Nigeria",
+    "on-demand services Nigeria",
+    "gig economy Nigeria",
+    "freelance marketplace",
+    "service booking platform",
+    "agent marketplace",
+    
+    // Location-Based
     "Lagos services",
-    "Abuja services", 
-    "Port Harcourt services"
+    "Ibadan services",
+    "Abuja services",
+    "Port Harcourt services",
+    "Nigerian service platform",
+    
+    // Value Propositions
+    "fair pay freelancing",
+    "protected payments",
+    "verified workers",
+    "instant payouts",
+    "reliable service providers",
+    "professional agents Nigeria"
   ],
   authors: [{ name: "BeeSeek Team" }],
   creator: "BeeSeek",
@@ -121,7 +180,7 @@ export default function RootLayout({
         
         {/* Google Analytics */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-S9NB7Z9F43"
+          src="https://www.googletagmanager.com/gtag/js?id=G-G1FPPLXCEP"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -129,11 +188,11 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-S9NB7Z9F43');
+            gtag('config', 'G-G1FPPLXCEP');
           `}
         </Script>
         
-        {/* Structured Data */}
+        {/* Structured Data - Organization */}
         <Script
           id="organization-schema"
           type="application/ld+json"
@@ -170,6 +229,10 @@ export default function RootLayout({
                 },
                 {
                   "@type": "City", 
+                  "name": "Ibadan"
+                },
+                {
+                  "@type": "City",
                   "name": "Abuja"
                 },
                 {
@@ -181,6 +244,100 @@ export default function RootLayout({
                   "name": "Nigeria"
                 }
               ]
+            })
+          }}
+        />
+        
+        {/* Structured Data - Service */}
+        <Script
+          id="service-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Service",
+              "serviceType": "Professional Service Marketplace",
+              "provider": {
+                "@type": "Organization",
+                "name": "BeeSeek"
+              },
+              "areaServed": {
+                "@type": "Country",
+                "name": "Nigeria"
+              },
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "BeeSeek Services",
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Home Repairs & Maintenance",
+                      "description": "Professional electrician, plumber, AC repair, carpenter, painter, and handyman services"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Cleaning & Domestic Support",
+                      "description": "House cleaning, deep cleaning, laundry services, and professional cleaning"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Device & Technical Repairs",
+                      "description": "Phone repair, laptop repair, TV repair, CCTV installation and maintenance"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Events & Occasion Services",
+                      "description": "Event planning, catering, photography, DJ services, and event decoration"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Personal Care Services",
+                      "description": "Barbing, hairdressing, and makeup artist services"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Outdoor & Environmental Services",
+                      "description": "Gardening, landscaping, pest control, and car wash services"
+                    }
+                  }
+                ]
+              }
+            })
+          }}
+        />
+        
+        {/* Structured Data - WebSite */}
+        <Script
+          id="website-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "BeeSeek",
+              "url": "https://www.beeseek.site",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://www.beeseek.site/search?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
             })
           }}
         />
